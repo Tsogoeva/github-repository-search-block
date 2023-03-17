@@ -11,17 +11,38 @@
 </head>
 
 <body>
-    <div class="search__container">
-        <form class="search__form">
-            <div class="search__field">
-                <input name="text" tabindex="1" class="search__field_input" type="text" placeholder="Введите url...">
-                <div class="search__field_button">
-                    <button tabindex="2" type="submit">Искать</button>
+    <main class="search__container">
+        <section class="search__container_form">
+            <form class="search__form">
+                <h2 class="search__form_title">Введите подстроку <b>GitHub</b> репозитория!</h2>
+                <div class="search__field">
+                    <input name="text" tabindex="1" class="search__field_input" type="text"
+                        placeholder="Введите url...">
+                    <div class="search__field_button">
+                        <button tabindex="2" type="submit">Поиск</button>
+                    </div>
                 </div>
-            </div>
-        </form>
-        <div class="search__list"></div>
-    </div>
+            </form>
+        </section>
+        <section class="search__container_list">
+            <h2 class="search__list_title">Результат поиска</h2>
+
+            <p class="search__list_not_found">Ничего не найдено</p>
+
+            <ul class="search__list">
+
+                <li class="search__list_item">
+                    <a class="search__item_title" href="#">
+                        Название
+                    </a>
+                    <p class="search__item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum
+                        perferendis, esse, nobis necessitatibus eum magnam corrupti, blanditiis soluta aperiam deleniti
+                        ratione dolorem maxime illo delectus consequatur veritatis atque distinctio nisi.</p>
+                </li>
+
+            </ul>
+        </section>
+    </main>
 </body>
 
 </html>
