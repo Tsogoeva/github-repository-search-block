@@ -41,6 +41,7 @@ body {
 				}
 			}
 			.search__field {
+				position: relative;
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
@@ -49,7 +50,24 @@ body {
 				max-width: 700px;
 				margin: 10px auto;
 
+				.search__field_invalid {
+					display: none;
+					position: absolute;
+					bottom: 50px;
+					left: 200px;
+
+					border: 1px solid rgb(155, 126, 201);
+					background-color: rgb(226, 210, 249);
+					border-radius: 8px;
+
+					font-size: 12px;
+					white-space: nowrap;
+
+					padding: 5px;
+				}
+
 				.search__field_input {
+					font-size: 14px;
 					background-color: rgba(227, 209, 255, 0.492);
 					border: 1px solid rgba(192, 172, 225, 0.461);
 					border-radius: 10px;
@@ -64,12 +82,17 @@ body {
 					font-size: 16px;
 				}
 
+				.invalid {
+					background-color: rgba(229, 83, 95, 0.206);
+					border: 1px solid #e5535f;
+					border-radius: 10px;
+				}
+
 				.search__field_button {
 					max-width: 100px;
 					flex: 1 1 auto;
 
 					margin: 5px 10px 5px 20px;
-					padding: 10px;
 					text-align: center;
 
 					border: 1px solid rgba(174, 150, 212, 0.572);
@@ -79,6 +102,7 @@ body {
 						background-color: #ffffff;
 						color: rgba(0, 0, 0, 0.6);
 						font-size: 16px;
+						padding: 10px 20px;
 					}
 				}
 
@@ -93,6 +117,61 @@ body {
 			}
 		}
 	}
+
+	.search__container_loading {
+		display: none;
+		border: 1px solid rgb(174, 150, 212);
+		border-radius: 10px;
+		background-color: #ffffff;
+
+		padding: 10px 10px 20px 10px;
+		margin-top: 3px;
+		max-height: 80px;
+
+		.search__loading_info {
+			text-align: center;
+			font-size: 18px;
+			line-height: 20px;
+			margin: 20px 0 40px;
+		}
+	}
+
+	.search__container_not_found {
+		display: none;
+		border: 1px solid rgb(174, 150, 212);
+		border-radius: 10px;
+		background-color: #ffffff;
+
+		padding: 10px 10px 20px 10px;
+		margin-top: 3px;
+		max-height: 80px;
+
+		.search__not_found_info {
+			text-align: center;
+			font-size: 18px;
+			line-height: 20px;
+			margin: 20px 0 40px;
+		}
+	}
+
+	.search__container_error {
+		display: none;
+		border: 1px solid rgb(174, 150, 212);
+		border-radius: 10px;
+		background-color: #ffffff;
+
+		padding: 10px 10px 20px 10px;
+		margin-top: 3px;
+		max-height: 80px;
+
+		.search__error_info {
+			text-align: center;
+			font-size: 18px;
+			line-height: 20px;
+			margin: 20px 0 40px;
+		}
+	}
+
 	.search__container_list {
 		display: none;
 		border: 1px solid rgb(174, 150, 212);
@@ -101,7 +180,8 @@ body {
 
 		padding: 10px 10px 20px 10px;
 		margin-top: 3px;
-		max-height: 470px;
+		min-height: 200px;
+		overflow: hidden;
 
 		.search__list_title {
 			display: inline-block;
@@ -113,46 +193,67 @@ body {
 			padding-bottom: 3px;
 		}
 
-		.search__list_not_found {
-			display: none;
-			text-align: center;
-			font-size: 18px;
-			line-height: 20px;
-			margin: 20px 0 40px;
-		}
+		.search__block_list {
+			.search__list {
+				.search__list_item {
+					display: flex;
+					justify-content: space-between;
 
-		.search__list {
-			.search__list_item {
-				max-width: 700px;
-				border: 1px solid rgb(192, 172, 225);
-				border-radius: 10px;
+					max-width: 700px;
+					border: 1px solid rgb(192, 172, 225);
+					border-radius: 10px;
 
-				padding: 10px 10px;
-				margin: 10px auto 0;
+					padding: 10px 10px;
+					margin: 10px auto 0;
 
-				.search__item_title {
-					font-size: 18px;
-					line-height: 20px;
-					color: rgba(0, 0, 0, 0.6);
-				}
+					.search__list_item_info {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
 
-				:hover.search__item_title {
-					color: rgb(192, 172, 225);
-				}
+						.search__item_title {
+							font-size: 18px;
+							line-height: 20px;
+							color: rgba(0, 0, 0, 0.6);
+							border-bottom: 1px solid rgb(192, 172, 225);
+							margin-left: 10px;
+						}
 
-				:visited.search__item_title {
-					color: rgb(145, 101, 215);
-				}
+						:hover.search__item_title {
+							color: rgb(192, 172, 225);
+						}
 
-				:active.search__item_title {
-					color: rgb(87, 12, 207);
-				}
+						:visited.search__item_title {
+							color: rgb(145, 101, 215);
+						}
 
-				.search__item_description {
-					margin: 10px 5px 10px 5px;
+						:active.search__item_title {
+							color: rgb(87, 12, 207);
+						}
 
-					font-size: 16px;
-					line-height: 20px;
+						.search__item_language {
+							margin: 10px 5px 5px 15px;
+							font-size: 15px;
+							line-height: 18px;
+						}
+						.search__item_login {
+							margin: 5px 5px 5px 15px;
+							font-size: 15px;
+							line-height: 18px;
+						}
+						.search__item_id {
+							margin: 0 5px 5px 15px;
+							font-size: 15px;
+							line-height: 18px;
+						}
+					}
+
+					.search__item_avatar {
+						max-width: 100px;
+						border-radius: 50%;
+
+						margin: 10px;
+					}
 				}
 			}
 		}
