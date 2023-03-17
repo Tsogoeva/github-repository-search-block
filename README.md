@@ -1,18 +1,47 @@
-# 🚀 Welcome to your new awesome project!
+The 'GitHub' repository search box by substring
+==========
 
-This project has been created using **webpack-cli**, you can now run
+<img src="./readme-source/screenshot-of-search-box.png" width="800">
 
-```
-npm run build
-```
+------------
+### Technologies:
+* HTML5
+* SASS
+* Flexbox
+* Webpack
+* onChange
+* MVC
+* Fetch
+____________
 
-or
+* The search returns a maximum of 10 repositories
 
-```
-yarn build
-```
+<img src="./readme-source/screenshot-of-search-box-result.png" width="800">
 
-to bundle your application
+____________
 
+* There is validation when sending a substring
 
-the 'github' repository search box by substring
+<img src="./readme-source/screenshot-of-search-box-validation.png" width="800">
+
+____________
+
+* There are notifications: download, no match and error
+
+<img src="./readme-source/screenshot-of-search-box-notices.png" width="800">
+
+____________
+
+### Setup and Run:
+* `npm ci`
+* `npm run build`
+* `npm run serve`
+
+___________
+### Refactoring:
+- [ ] Add Linter
+- [ ] Use more SCSS features
+  - [ ] Variables
+  - [ ] Expand
+
+__________
