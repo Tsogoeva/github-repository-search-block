@@ -16,31 +16,34 @@
             <form class="search__form">
                 <h2 class="search__form_title">Введите подстроку <b>GitHub</b> репозитория!</h2>
                 <div class="search__field">
+                    <span class="search__field_invalid">Подстрока не валидна! Введите подстроку минимум из 4 символов и
+                        без пробелов.</span>
                     <input name="text" tabindex="1" class="search__field_input" type="text"
-                        placeholder="Введите url...">
+                        placeholder="Введите подстроку...">
                     <div class="search__field_button">
                         <button tabindex="2" type="submit">Поиск</button>
                     </div>
                 </div>
             </form>
         </section>
+        <section class="search__container_loading">
+            <h2 class="search__loading_info">
+                Идёт поиск...
+            </h2>
+        </section>
+        <section class="search__container_not_found">
+            <h2 class="search__not_found_info">
+                Ничего не найдено
+            </h2>
+        </section>
+        <section class="search__container_error">
+            <h2 class="search__error_info">
+                Что-то пошло не так! Попробуйте позже.
+            </h2>
+        </section>
         <section class="search__container_list">
             <h2 class="search__list_title">Результат поиска</h2>
-
-            <p class="search__list_not_found">Ничего не найдено</p>
-
-            <ul class="search__list">
-
-                <li class="search__list_item">
-                    <a class="search__item_title" href="#">
-                        Название
-                    </a>
-                    <p class="search__item_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum
-                        perferendis, esse, nobis necessitatibus eum magnam corrupti, blanditiis soluta aperiam deleniti
-                        ratione dolorem maxime illo delectus consequatur veritatis atque distinctio nisi.</p>
-                </li>
-
-            </ul>
+            <div class="search__block_list"></div>
         </section>
     </main>
 </body>
